@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:sail/splash_screen.dart';
+import 'package:sail/splash.dart';
+import 'package:sail/game.dart';
 
 void main() {
   runApp(MyApp());
@@ -21,15 +22,17 @@ class MyApp extends StatelessWidget {
         backgroundColor: Color.fromRGBO(12, 12, 12, 1),
       ),
       home: SplashScreen(),
-    );
-  }
-}
-
-class Main extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Text('Hi'),
+      onGenerateRoute: (settings) {
+        if (settings.name == "/game") {
+          return PageRouteBuilder(
+            settings: settings,
+            pageBuilder: (_, __, ___) => Game(),
+            transitionsBuilder: (_, a, __, c) =>
+                FadeTransition(opacity: a, child: c),
+          );
+        }
+        return MaterialPageRoute(builder: (_) => null);
+      },
     );
   }
 }

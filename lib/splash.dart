@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:page_transition/page_transition.dart';
 
-import 'package:sail/main.dart';
+import 'package:sail/game_title.dart';
 
 class SplashScreen extends StatelessWidget {
   @override
@@ -20,7 +20,7 @@ class SplashScreen extends StatelessWidget {
               'assets/images/splash_logo_dark.png',
             ),
       splashIconSize: 150,
-      nextScreen: Main(),
+      nextScreen: GameTitle(),
       splashTransition: SplashTransition.fadeTransition,
       pageTransitionType: PageTransitionType.fade,
     );
